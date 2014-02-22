@@ -1,0 +1,14 @@
+default:
+  paths:
+    features:  vendor/alnutile/behat-wrapper/test/features
+    bootstrap: vendor/alnutile/behat-wrapper/test/features/bootstrap
+  formatter:
+    name: html
+
+annotations:
+  paths:
+    features: features/annotations
+
+closures:
+  paths:
+    features: features/closures
