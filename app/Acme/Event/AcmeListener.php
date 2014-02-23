@@ -1,6 +1,7 @@
 <?php namespace Acme\Event;
 
-
+use BehatWrapper\Event\BehatEvent;
+use BehatWrapper\Event\BehatEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
@@ -13,8 +14,11 @@ class AcmeListener implements EventSubscriberInterface
         );
     }
 
-    public function behatPrepare(FilterOrderEvent $event)
+    public function behatPrepare(BehatEvent $event)
     {
-        dd('Yup');
+        $event->getCommand()
+            ->unsetFlag('no-paths')
+            ->setOption('format', 'pretty');
+        return $event;
     }
 }

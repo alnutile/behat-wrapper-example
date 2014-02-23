@@ -45,6 +45,8 @@ Route::get('/example_command', function(){
 });
 
 Route::get('/example_hooked', function(){
+
+
     $setup = new BehatSetup();
     $setup->wrapper->setBehatBinary($setup->bin_path);
     $command = \BehatWrapper\BehatCommand::getInstance()
@@ -52,10 +54,9 @@ Route::get('/example_hooked', function(){
         ->setFlag('no-paths')
         ->setTestPath($setup->test_path);
 
+    $listener = new \Acme\Event\AcmeListener();
+    $setup->wrapper->getDispatcher()->addSubscriber($listener);
 
-    $subscriber = new \Acme\Event\AcmeListener();
-    $dispatcher = new \Symfony\Component\EventDispatcher\EventDispatcher();
-    $dispatcher->addSubscriber($subscriber);
-
-    return \Illuminate\Support\Facades\Response::json($setup->wrapper->run($command));
+    $output = \Illuminate\Support\Facades\Response::json($setup->wrapper->run($command));
+    return $output;
 });
