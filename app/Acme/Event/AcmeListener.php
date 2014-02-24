@@ -21,4 +21,5 @@ class AcmeListener implements EventSubscriberInterface
             ->setOption('format', 'pretty');
         return $event;
     }
+
 }

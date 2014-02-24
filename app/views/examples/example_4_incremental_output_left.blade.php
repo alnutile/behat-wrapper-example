@@ -2,15 +2,13 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
-                Example using the Symfony Event hook included in the wrapper
+                Example using the Symfony Process incremental output
             </h3>
         </div>
         <div class="panel-body">
             <p>
-                We will show a hook of the command both pre run.
-                The original command will have html as the format and
-                no paths but after the hook it will be plain text and
-                show the paths or methods being used for each step.
+                With the Symfony Process component we can output incremental results from our test.
+                This is key on long tests so the user, just like the command line, can see progress.
             </p>
 <pre class="prettyprint linenums">
 //1. instantiate the wrapper class

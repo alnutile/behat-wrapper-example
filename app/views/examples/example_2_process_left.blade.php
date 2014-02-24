@@ -25,8 +25,13 @@ $behat_yml = $base_path . '/behat.yml';
 $test_path = $base_path . '/vendor/alnutile/behat-wrapper/test/features/test.feature';
 //6. Set the Binary path
 $wrapper->setBehatBinary($bin_path);
-//7. Run the raw command and get the output.
-$command = $wrapper->wrapper->behat($wrapper->test_path,  base_path());
+//7. build the command
+$command = \BehatWrapper\BehatCommand::getInstance()
+    ->setOption('tags', '~@example')
+    ->setFlag('no-paths')
+    ->setTestPath($setup->test_path);
+//8. Run the wrapped command and get the output.
+$command = $wrapper->wrapper->run($command);
 </pre>
 
 <h4>Notes</h4>

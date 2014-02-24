@@ -38,7 +38,9 @@
 
 </div><!-- /.container -->
 
-
+<footer>
+    <div class="text-center"><a href="http://fortrabbit.com/">Hosted by FortRabbit!</a></div>
+</footer>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
